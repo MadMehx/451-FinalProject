@@ -27,9 +27,14 @@ public class GameManagerASL : MonoBehaviour
 
     void FixedUpdate()
     {
-        // This could be moved to a delegate that is called when the player
-        // moves in order to save bandwidth
-        Movement();
+        if (playerBoat == null) return;
+
+        playerBoat.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
+        {
+            // This could be moved to a delegate that is called when the player
+            // moves in order to save bandwidth
+            Movement();
+        });
     }
 
     private static void OnPlayerCreated(GameObject _myGameObject)
@@ -46,9 +51,9 @@ public class GameManagerASL : MonoBehaviour
     // types like movement and color
     private static void OnPlayerReceiveFloats(string _id, float[] _floats)
     {
-        var dir = new Vector3(_floats[0], _floats[1], _floats[2]);
+        //var dir = new Vector3(_floats[0], _floats[1], _floats[2]);
 
-        playerBoat.GetComponent<Rigidbody>().velocity = new Vector3(1, 0);
+        playerBoat.GetComponent<Rigidbody>().velocity = new Vector3(2, 0);
     }
 
     private void Movement()
