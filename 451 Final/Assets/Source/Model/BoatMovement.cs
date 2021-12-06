@@ -8,6 +8,9 @@ public class BoatMovement : MonoBehaviour
     float velocity = 0;
     public GameObject piston;
     public GameObject rotor;
+    float force = 0;
+    bool reloaded = true; 
+    bool firing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +40,22 @@ public class BoatMovement : MonoBehaviour
         Vector3 rotorrot = rotor.transform.eulerAngles;
         rotor.transform.localRotation = Quaternion.Euler(0,0,rotorrot.z+velocity*-10);
         if(Input.GetKeyDown(KeyCode.Space)){
-
+            if (reloaded && !firing){
+                firing = true;
+                reloaded = false;
+            }
         }
+        if (firing && force < 1){
+            force += 10 * Time.deltaTime;
+        } else if(!firing && !reloaded && force > 0){
+            force -= .5f*Time.deltaTime;
+        } else if (!firing && !reloaded){
+            reloaded = true;
+        } else {
+            firing = false;
+        }
+        Debug.Log(firing);
+        piston.transform.localPosition = new Vector3(0,-force,0);
+
     }
 }
