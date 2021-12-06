@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     {
         if (player == null && lookAtPosition == null)
         {
-            player = GameManagerASL.playerBoat;
+            player = GameManagerASL.playerBoat.GetComponentInChildren<BoatMovement>().gameObject;
             lookAtPosition = player.transform;
         }
 
