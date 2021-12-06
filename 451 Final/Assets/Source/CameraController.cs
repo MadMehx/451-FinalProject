@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private Transform lookAtPosition;
+    [SerializeField]
+    private Vector3 offset;
 
     private float prevMouseX = 0f;
     private float prevMouseY = 0f;
@@ -75,6 +77,10 @@ public class CameraController : MonoBehaviour
             var scroll = -Input.GetAxis("Mouse ScrollWheel");
             Vector3 dir = transform.localPosition - lookAtPosition.localPosition;
             transform.localPosition += scroll * dir;
+        } 
+        else
+        {
+            transform.localPosition = lookAtPosition.localPosition + offset;
         }
     }
 

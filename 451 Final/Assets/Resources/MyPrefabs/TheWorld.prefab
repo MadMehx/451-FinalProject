@@ -65,7 +65,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ca3a2921ce4444da00d7a2c84d90be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader451: {fileID: 2100000, guid: c579d6827796eff4995d33952ad18fa0, type: 2}
+  shader451Default: {fileID: 2100000, guid: 119fcf5df5daf1241a19e66c45a434a1, type: 2}
+  shader451Boat: {fileID: 2100000, guid: 63f3c9b19f87cc44980d8c29d5c907a5, type: 2}
+  shader451Leafs: {fileID: 2100000, guid: c3b34543608357745b9ea2f1dcbc31e4, type: 2}
   primitives:
   - {fileID: 3708672277613052040}
   - {fileID: 3708672276541024696}
@@ -470,8 +472,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4591050491377029927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
-  m_LocalScale: {x: 0.9, y: 1, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 1.1, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4591050490342967367}
@@ -556,8 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48206b30a4e09bd43888973a581baf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piston: {fileID: 4591050491507592043}
-  rotor: {fileID: 3708672276541024696}
+  piston: {fileID: 4591050491377029927}
+  rotor: {fileID: 4591050489662378380}
 --- !u!1 &4591050491507592043
 GameObject:
   m_ObjectHideFlags: 0

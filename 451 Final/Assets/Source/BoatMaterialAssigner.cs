@@ -5,14 +5,18 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class BoatMaterialAssigner : MonoBehaviour
 {
-    public Material shader451;
+    public Material shader451Default;
+    public Material shader451Boat;
+    public Material shader451Leafs;
     public GameObject[] primitives;
 
     void Start()
     {
-        foreach (GameObject prim in primitives)
-        {
-            prim.GetComponent<Renderer>().material = shader451;
-        }
+        primitives[0].GetComponent<Renderer>().material = shader451Boat;
+        primitives[1].GetComponent<Renderer>().material = shader451Default;
+        primitives[2].GetComponent<Renderer>().material = shader451Leafs;
+        primitives[3].GetComponent<Renderer>().material = shader451Default;
+        primitives[4].GetComponent<Renderer>().material = shader451Default;
+        primitives[5].GetComponent<Renderer>().material = shader451Leafs;
     }
 }

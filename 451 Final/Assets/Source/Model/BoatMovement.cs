@@ -38,7 +38,7 @@ public class BoatMovement : MonoBehaviour
         transform.GetChild(1).localRotation = Quaternion.Euler(0,turnAngle,0);
         transform.position -= transform.forward * velocity;
         Vector3 rotorrot = rotor.transform.eulerAngles;
-        rotor.transform.localRotation = Quaternion.Euler(0,0,rotorrot.z+velocity*-10);
+        rotor.transform.localRotation = Quaternion.Euler(0,0,rotorrot.z+velocity*10);
         if(Input.GetKeyDown(KeyCode.Space)){
             if (reloaded && !firing){
                 firing = true;
