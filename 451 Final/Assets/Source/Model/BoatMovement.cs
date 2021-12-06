@@ -6,6 +6,8 @@ public class BoatMovement : MonoBehaviour
 {
     float turnAngle = 0;
     float velocity = 0;
+    public GameObject piston;
+    public GameObject rotor;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +34,10 @@ public class BoatMovement : MonoBehaviour
         transform.GetChild(0).localRotation = Quaternion.Euler(0,-turnAngle,0);
         transform.GetChild(1).localRotation = Quaternion.Euler(0,turnAngle,0);
         transform.position += transform.forward * velocity;
+        Vector3 rotorrot = rotor.transform.eulerAngles;
+        rotor.transform.localRotation = Quaternion.Euler(0,0,rotorrot.z+velocity*-10);
+        if(Input.GetKeyDown(KeyCode.Space)){
+
+        }
     }
 }
