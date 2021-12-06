@@ -8,11 +8,14 @@ public class GameManagerASL : MonoBehaviour
     /// Static ref to local player boat object, accessible to other classes
     /// without direct ref.
     /// </summary>
-    private static GameObject playerBoat = null;
+    public static GameObject playerBoat = null;
+
+    [SerializeField]
+    private string playerPrefabName;
 
     void Start()
     {
-        ASL.ASLHelper.InstantiateASLObject("PlayerBoat",
+        ASL.ASLHelper.InstantiateASLObject(playerPrefabName,
             new Vector3(0, 1, 0),
             Quaternion.identity,
             string.Empty,

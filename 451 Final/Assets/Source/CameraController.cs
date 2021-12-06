@@ -12,8 +12,16 @@ public class CameraController : MonoBehaviour
     private float prevMouseX = 0f;
     private float prevMouseY = 0f;
 
+    private GameObject player = null;
+
     void Update()
     {
+        if (player == null)
+        {
+            player = GameManagerASL.playerBoat;
+            lookAtPosition = player.transform;
+        }
+
         // LookAt() without rotation
         transform.up = Vector3.up;
         transform.forward = (lookAtPosition.transform.localPosition - transform.localPosition).normalized;
@@ -49,13 +57,13 @@ public class CameraController : MonoBehaviour
                 }
                 else if (Input.GetMouseButton(1)) // Track
                 {
-                    // Shrink distance so camera doesn't go flying
-                    distanceX *= 0.01f;
-                    distanceY *= 0.01f;
+                    //// Shrink distance so camera doesn't go flying
+                    //distanceX *= 0.01f;
+                    //distanceY *= 0.01f;
 
-                    Vector3 panDistance = distanceX * transform.right + distanceY * transform.up;
-                    transform.localPosition += panDistance;
-                    lookAtPosition.localPosition += panDistance;
+                    //Vector3 panDistance = distanceX * transform.right + distanceY * transform.up;
+                    //transform.localPosition += panDistance;
+                    //lookAtPosition.localPosition += panDistance;
                 }
 
                 // Get new start pos
