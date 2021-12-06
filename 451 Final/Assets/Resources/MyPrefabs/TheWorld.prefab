@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ca3a2921ce4444da00d7a2c84d90be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader451: {fileID: 0}
+  shader451: {fileID: 2100000, guid: c579d6827796eff4995d33952ad18fa0, type: 2}
   primitives:
   - {fileID: 3708672277613052040}
   - {fileID: 3708672276541024696}
@@ -556,8 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48206b30a4e09bd43888973a581baf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piston: {fileID: 0}
-  rotor: {fileID: 0}
+  piston: {fileID: 4591050491507592043}
+  rotor: {fileID: 3708672276541024696}
 --- !u!1 &4591050491507592043
 GameObject:
   m_ObjectHideFlags: 0
