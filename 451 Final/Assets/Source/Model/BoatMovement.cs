@@ -24,7 +24,7 @@ public class BoatMovement : MonoBehaviour
         else
             turnAngle = -20;
         if (velocity <= .3f && velocity >= -.15f)
-            velocity += Time.deltaTime* -.1f * Input.GetAxis("Vertical");
+            velocity += Time.deltaTime* .1f * Input.GetAxis("Vertical");
         else if (velocity > .3f)
             velocity = .3f;
         else 
