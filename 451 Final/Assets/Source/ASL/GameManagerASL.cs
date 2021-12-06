@@ -15,10 +15,8 @@ public class GameManagerASL : MonoBehaviour
 
     void Start()
     {
-        
-
         ASL.ASLHelper.InstantiateASLObject(playerPrefabName,
-            new Vector3(0, 1, 0),
+            new Vector3(Random.Range(-3, 3), 1, Random.Range(-3, 3)),
             Quaternion.identity,
             string.Empty,
             string.Empty,
@@ -50,7 +48,7 @@ public class GameManagerASL : MonoBehaviour
     {
         var dir = new Vector3(_floats[0], _floats[1], _floats[2]);
 
-
+        playerBoat.GetComponent<Rigidbody>().velocity = new Vector3(1, 0);
     }
 
     private void Movement()
