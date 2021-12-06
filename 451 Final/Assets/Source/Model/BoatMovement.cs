@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoatMovement : MonoBehaviour
 {
     float turnAngle = 0;
-    float velocity = 0;
+    public float velocity = 0;
     public GameObject piston;
     public GameObject rotor;
     float force = 0;
@@ -54,8 +54,6 @@ public class BoatMovement : MonoBehaviour
         } else {
             firing = false;
         }
-        Debug.Log(firing);
         piston.transform.localPosition = new Vector3(0,-force,0);
-
     }
 }
