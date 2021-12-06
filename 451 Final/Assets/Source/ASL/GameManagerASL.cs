@@ -16,7 +16,7 @@ public class GameManagerASL : MonoBehaviour
     void Start()
     {
         ASL.ASLHelper.InstantiateASLObject(playerPrefabName,
-            new Vector3(Random.Range(-3, 3), 0, Random.Range(-3, 3)),
+            new Vector3(0, 0, 0),
             Quaternion.identity,
             string.Empty,
             string.Empty,
