@@ -33,7 +33,7 @@ namespace ASL
         /// Called upon script load, it switches our scene to the LobbyScene, which then, using this class's static variables, determines what to do next
         /// </summary>
         private void Awake()
-        {           
+        {
             if (!m_StaticQuickStart && (FindObjectOfType<GameLiftManager>() == null || GameLiftManager.GetInstance() == null || !GameLiftManager.GetInstance().m_Client.ConnectedAndReady))
             {
                 m_StaticQuickStart = true;
@@ -41,8 +41,6 @@ namespace ASL
                 m_StaticStartingScene = m_StartingScene;
                 SceneManager.LoadScene("ASL_LobbyScene");
             }
-            
         }
-
     }
 }
