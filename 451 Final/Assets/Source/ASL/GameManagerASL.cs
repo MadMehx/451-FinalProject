@@ -29,14 +29,16 @@ public class GameManagerASL : MonoBehaviour
     {
         if (playerBoat == null) return;
 
-        playerBoat.GetComponent<ASL.ASLObject>().SendAndSetWorldPosition(playerBoat.transform.position);
 
-        //playerBoat.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
-        //{
-        //    // This could be moved to a delegate that is called when the player
-        //    // moves in order to save bandwidth
-        //    Movement();
-        //});
+
+        playerBoat.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
+        {
+            // This could be moved to a delegate that is called when the player
+            // moves in order to save bandwidth
+            //Movement();
+
+            playerBoat.GetComponent<ASL.ASLObject>().SendAndSetWorldPosition(playerBoat.transform.position);
+        });
     }
 
     private static void OnPlayerCreated(GameObject _myGameObject)
