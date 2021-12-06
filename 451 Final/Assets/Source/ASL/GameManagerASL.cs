@@ -16,7 +16,7 @@ public class GameManagerASL : MonoBehaviour
     void Start()
     {
         ASL.ASLHelper.InstantiateASLObject(playerPrefabName,
-            new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), Random.Range(-3, 3)),
+            new Vector3(Random.Range(-3, 3), 0, Random.Range(-3, 3)),
             Quaternion.identity,
             string.Empty,
             string.Empty,
@@ -29,12 +29,14 @@ public class GameManagerASL : MonoBehaviour
     {
         if (playerBoat == null) return;
 
-        playerBoat.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
-        {
-            // This could be moved to a delegate that is called when the player
-            // moves in order to save bandwidth
-            Movement();
-        });
+        playerBoat.GetComponent<ASL.ASLObject>().SendAndSetWorldPosition(playerBoat.transform.position);
+
+        //playerBoat.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
+        //{
+        //    // This could be moved to a delegate that is called when the player
+        //    // moves in order to save bandwidth
+        //    Movement();
+        //});
     }
 
     private static void OnPlayerCreated(GameObject _myGameObject)
@@ -54,14 +56,6 @@ public class GameManagerASL : MonoBehaviour
         //var dir = new Vector3(_floats[0], _floats[1], _floats[2]);
         ASL.ASLObject networkedPlayerBoat;
         ASL.ASLHelper.m_ASLObjects.TryGetValue(_id, out networkedPlayerBoat);
-        networkedPlayerBoat.GetComponent<Rigidbody>().velocity = new Vector3(2, 0);
-    }
-
-    private void Movement()
-    {
-        float[] moveDir = new float[] {
-            //vector
-        };
-        playerBoat.GetComponent<ASL.ASLObject>().SendFloatArray(moveDir);
+        //networkedPlayerBoat.GetComponent<Rigidbody>().velocity = new Vector3(2, 0);
     }
 }
