@@ -112,8 +112,7 @@ namespace SimpleDemos
                     m_RotationHolder = Quaternion.AngleAxis(1f, Vector3.up);
                     _object.GetComponent<ASL.ASLObject>().SendAndIncrementLocalRotation(m_RotationHolder);
                 });
-            }
-            
+            }   
         }
 
         /// <summary>
