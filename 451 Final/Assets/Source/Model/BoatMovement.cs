@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoatMovement : MonoBehaviour
 {
     float turnAngle = 0;
-    public float velocity = 0;
+    float velocity = 0;
     public GameObject piston;
     public GameObject rotor;
     float force = 0;
@@ -26,17 +26,17 @@ public class BoatMovement : MonoBehaviour
             turnAngle = 20;
         else
             turnAngle = -20;
-        if (velocity <= .3f && velocity >= -.15f)
+        if (velocity <= .1f && velocity >= -.15f)
             velocity += Time.deltaTime* .1f * Input.GetAxis("Vertical");
-        else if (velocity > .3f)
-            velocity = .3f;
+        else if (velocity > .1f)
+            velocity = .1f;
         else 
             velocity = -.15f;
         Vector3 rot = transform.eulerAngles;
         transform.rotation = Quaternion.Euler(rot.x,rot.y+turnAngle*Time.deltaTime,rot.z);
         transform.GetChild(0).localRotation = Quaternion.Euler(0,-turnAngle,0);
         transform.GetChild(1).localRotation = Quaternion.Euler(0,turnAngle,0);
-        transform.position += transform.forward * velocity;
+        transform.position -= transform.forward * velocity;
         Vector3 rotorrot = rotor.transform.eulerAngles;
         rotor.transform.localRotation = Quaternion.Euler(0,0,rotorrot.z+velocity*-10);
         if(Input.GetKeyDown(KeyCode.Space)){
