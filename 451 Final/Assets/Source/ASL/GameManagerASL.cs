@@ -52,8 +52,9 @@ public class GameManagerASL : MonoBehaviour
     private static void OnPlayerReceiveFloats(string _id, float[] _floats)
     {
         //var dir = new Vector3(_floats[0], _floats[1], _floats[2]);
-
-        playerBoat.GetComponent<Rigidbody>().velocity = new Vector3(2, 0);
+        ASL.ASLObject networkedPlayerBoat;
+        ASL.ASLHelper.m_ASLObjects.TryGetValue(_id, out networkedPlayerBoat);
+        networkedPlayerBoat.GetComponent<Rigidbody>().velocity = new Vector3(2, 0);
     }
 
     private void Movement()
