@@ -16,13 +16,13 @@ public class BoatMovement : MonoBehaviour
     void Update()
     {
         if (turnAngle <= 20 && turnAngle >= -20)
-            turnAngle += Input.GetAxis("Horizontal");
+            turnAngle += Input.GetAxis("Horizontal")*.1f;
         else if (turnAngle > 20 )
             turnAngle = 20;
         else
             turnAngle = -20;
         if (velocity <= .3f && velocity >= -.15f)
-            velocity += .01f * Input.GetAxis("Vertical");
+            velocity += Time.deltaTime* -.1f * Input.GetAxis("Vertical");
         else if (velocity > .3f)
             velocity = .3f;
         else 
@@ -31,5 +31,6 @@ public class BoatMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(rot.x,rot.y+turnAngle*Time.deltaTime,rot.z);
         transform.GetChild(0).localRotation = Quaternion.Euler(0,-turnAngle,0);
         transform.GetChild(1).localRotation = Quaternion.Euler(0,turnAngle,0);
+        transform.position += transform.forward * velocity;
     }
 }
