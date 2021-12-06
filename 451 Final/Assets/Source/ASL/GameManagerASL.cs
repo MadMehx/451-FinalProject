@@ -15,6 +15,8 @@ public class GameManagerASL : MonoBehaviour
 
     void Start()
     {
+        
+
         ASL.ASLHelper.InstantiateASLObject(playerPrefabName,
             new Vector3(0, 1, 0),
             Quaternion.identity,
@@ -25,9 +27,11 @@ public class GameManagerASL : MonoBehaviour
             OnPlayerReceiveFloats);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        // This could be moved to a delegate that is called when the player
+        // moves in order to save bandwidth
+        Movement();
     }
 
     private static void OnPlayerCreated(GameObject _myGameObject)
@@ -44,6 +48,16 @@ public class GameManagerASL : MonoBehaviour
     // types like movement and color
     private static void OnPlayerReceiveFloats(string _id, float[] _floats)
     {
-        
+        var dir = new Vector3(_floats[0], _floats[1], _floats[2]);
+
+
+    }
+
+    private void Movement()
+    {
+        float[] moveDir = new float[] {
+            //vector
+        };
+        playerBoat.GetComponent<ASL.ASLObject>().SendFloatArray(moveDir);
     }
 }
