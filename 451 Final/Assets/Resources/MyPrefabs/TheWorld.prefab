@@ -713,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48206b30a4e09bd43888973a581baf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boat: {fileID: 4591050489424773388}
   piston: {fileID: 4591050491377029927}
   rotor: {fileID: 4591050489662378380}
 --- !u!1 &4591050491507592043
