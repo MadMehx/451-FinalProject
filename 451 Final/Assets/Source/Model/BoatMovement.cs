@@ -13,13 +13,13 @@ public class BoatMovement : MonoBehaviour
     public GameObject piston;
     public GameObject rotor;
     float force = 0;
-    bool reloaded = true; 
+    bool reloaded = true;
     bool firing = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -96,9 +96,18 @@ public class BoatMovement : MonoBehaviour
 
         // Calculate new rotation
         var currRot = transform.eulerAngles;
-        var newRot = Quaternion.Euler(currRot.x, currRot.y + turnAngle * Time.deltaTime, currRot.z);
+        var newRot = Quaternion.Euler(currRot.x,
+                                      currRot.y + turnAngle * Time.deltaTime,
+                                      currRot.z);
         // Send new rotation
-        //float[] direction = new float[]
+        float[] direction = new float[]
+        {
+            newRot.eulerAngles.x,
+            newRot.eulerAngles.y,
+            newRot.eulerAngles.z,
+            ASL.GameLiftManager.GetInstance().m_PeerId + 10f
+        };
+        GameManagerASL.playerBoat.GetComponent<ASL.ASLObject>().SendFloatArray(direction);
 
         // Locally rotate engine, piston, and rotor
         transform.GetChild(0).localRotation = Quaternion.Euler(0, -turnAngle, 0);
@@ -113,7 +122,7 @@ public class BoatMovement : MonoBehaviour
         velocity = Mathf.Clamp(
             velocity + Input.GetAxis("Vertical") * accelRate * Time.deltaTime,
             -0.15f,
-            0.1f);
+            0.2f);
 
         // Calculate new movement
         var moveAmount = -transform.forward * velocity;
