@@ -96,18 +96,9 @@ public class BoatMovement : MonoBehaviour
 
         // Calculate new rotation
         var currRot = transform.eulerAngles;
-        var newRot = Quaternion.Euler(currRot.x, 
-                                      currRot.y + turnAngle * Time.deltaTime, 
-                                      currRot.z);
+        var newRot = Quaternion.Euler(currRot.x, currRot.y + turnAngle * Time.deltaTime, currRot.z);
         // Send new rotation
-        float[] direction = new float[]
-        {
-            newRot.eulerAngles.x,
-            newRot.eulerAngles.y,
-            newRot.eulerAngles.z,
-            ASL.GameLiftManager.GetInstance().m_PeerId + 10f
-        };
-        GameManagerASL.playerBoat.GetComponent<ASL.ASLObject>().SendFloatArray(direction);
+        //float[] direction = new float[]
 
         // Locally rotate engine, piston, and rotor
         transform.GetChild(0).localRotation = Quaternion.Euler(0, -turnAngle, 0);
