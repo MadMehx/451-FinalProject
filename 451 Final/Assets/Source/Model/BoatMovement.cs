@@ -6,7 +6,7 @@ public class BoatMovement : MonoBehaviour
 {
     public GameObject boat;
     public float turnRate = 0.1f;
-    public float accelRate = 0.1f;
+    public float accelRate = -0.1f;
 
     float turnAngle = 0;
     float velocity = 0;
@@ -23,7 +23,7 @@ public class BoatMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (boat == GameManagerASL.playerBoat)
         {
@@ -94,10 +94,11 @@ public class BoatMovement : MonoBehaviour
             -20,
             20);
 
-        // Calculate and apply new rotation
+        // Calculate new rotation
         var currRot = transform.eulerAngles;
         var newRot = Quaternion.Euler(currRot.x, currRot.y + turnAngle * Time.deltaTime, currRot.z);
-        //send new rotation
+        // Send new rotation
+        //float[] direction = new float[]
 
         // Locally rotate engine, piston, and rotor
         transform.GetChild(0).localRotation = Quaternion.Euler(0, -turnAngle, 0);
@@ -111,11 +112,12 @@ public class BoatMovement : MonoBehaviour
         // Get Input
         velocity = Mathf.Clamp(
             velocity + Input.GetAxis("Vertical") * accelRate * Time.deltaTime,
-            -0.15f,
+            0.15f,
             0.1f);
 
+        // Calculate new movement
+        var moveAmount = -transform.forward * velocity;
         // Send new movement
-        var moveAmount = transform.forward * velocity;
         float[] direction = new float[]
         {
             moveAmount.x,
