@@ -54,8 +54,16 @@ public class GameManagerASL : MonoBehaviour
 
         // Color
         // Rotation
+        if (_floats[3] >= 10f)
+        {
+            var rotation = Quaternion.Euler(_floats[0], _floats[1], _floats[2]);
+            networkedPlayerBoat.transform.GetChild(0).transform.rotation = rotation;
+        }
         // Movement
-        var direction = new Vector3(_floats[0], _floats[1], _floats[2]);
-        networkedPlayerBoat.transform.GetChild(0).GetComponent<Rigidbody>().AddForce(direction);
+        else
+        {
+            var direction = new Vector3(_floats[0], _floats[1], _floats[2]);
+            networkedPlayerBoat.transform.GetChild(0).GetComponent<Rigidbody>().AddForce(direction);
+        }
     }
 }
