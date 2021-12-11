@@ -23,17 +23,17 @@ public class BoatMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (boat == GameManagerASL.playerBoat)
-        {
-            RotationNetworked();
-            MovementNetworked();
-            Piston();
-        }
-    }
+    // void FixedUpdate()
+    // {
+    //     if (boat == GameManagerASL.playerBoat)
+    //     {
+    //         RotationNetworked();
+    //         MovementNetworked();
+    //         Piston();
+    //     }
+    // }
 
-    private void MovementNoNetwork()
+    private void Update()
     {
         if (turnAngle <= 20 && turnAngle >= -20)
             turnAngle += Input.GetAxis("Horizontal") * .1f;
