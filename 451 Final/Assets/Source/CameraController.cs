@@ -80,7 +80,7 @@ public class CameraController : MonoBehaviour
         } 
         else
         {
-            transform.localPosition = lookAtPosition.localPosition + offset;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, lookAtPosition.localPosition + offset, 1f * Time.deltaTime);
         }
     }
 
