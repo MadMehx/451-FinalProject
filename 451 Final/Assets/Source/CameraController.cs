@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
 
     private GameObject player = null;
 
-    void Update()
+    void FixedUpdate()
     {
         if (player == null && lookAtPosition == null)
         {
@@ -24,12 +24,11 @@ public class CameraController : MonoBehaviour
             lookAtPosition = player.transform;
         }
 
-        // LookAt() without rotation
-        transform.up = Vector3.up;
-        transform.forward = (lookAtPosition.transform.localPosition - transform.localPosition).normalized;
-
         if (Input.GetKey(KeyCode.LeftAlt))
         {
+            //transform.up = Vector3.up;
+            //transform.forward = (lookAtPosition.transform.localPosition - transform.localPosition).normalized;
+
             // On first press
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
@@ -57,16 +56,6 @@ public class CameraController : MonoBehaviour
                     Quaternion upDown = Quaternion.AngleAxis(distanceY, transform.right);
                     ComputeOrbit(upDown);
                 }
-                else if (Input.GetMouseButton(1)) // Track
-                {
-                    //// Shrink distance so camera doesn't go flying
-                    //distanceX *= 0.01f;
-                    //distanceY *= 0.01f;
-
-                    //Vector3 panDistance = distanceX * transform.right + distanceY * transform.up;
-                    //transform.localPosition += panDistance;
-                    //lookAtPosition.localPosition += panDistance;
-                }
 
                 // Get new start pos
                 prevMouseX = Input.mousePosition.x;
@@ -80,20 +69,24 @@ public class CameraController : MonoBehaviour
         } 
         else
         {
-            transform.localPosition = Vector3.Lerp(transform.localPosition, lookAtPosition.localPosition + offset, 1f * Time.deltaTime);
+            var newPos = Vector3.Lerp(transform.position, player.transform.position - (-player.transform.forward) * 10f, Time.deltaTime);
+            //newPos.y += 0.1f;
+            transform.position = newPos;
+            transform.LookAt(player.transform.position);
+            transform.position = new Vector3(transform.position.x,
+                                             transform.position.y + 0.1f,
+                                             transform.position.z);
         }
     }
 
     private void ComputeOrbit(Quaternion q)
     {
-        Matrix4x4 r = Matrix4x4.Rotate(q);
+        Matrix4x4 r = Matrix4x4.TRS(Vector3.zero, q, Vector3.one);
         Matrix4x4 invP = Matrix4x4.TRS(-lookAtPosition.localPosition, Quaternion.identity, Vector3.one);
         r = invP.inverse * r * invP;
         Vector3 newCameraPos = r.MultiplyPoint(transform.localPosition);
 
-        var v = lookAtPosition.position;
-        v.y = newCameraPos.y;
-        if (Vector3.Angle(newCameraPos, v) >= 10)
+        if (Mathf.Abs(Vector3.Dot(newCameraPos.normalized, Vector3.up)) < 0.985)
         {
             transform.localPosition = newCameraPos;
             transform.LookAt(lookAtPosition);
