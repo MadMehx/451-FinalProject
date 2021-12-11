@@ -25,19 +25,13 @@ public class GameManagerASL : MonoBehaviour
             OnPlayerReceiveFloats);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (playerBoat == null) return;
 
-
-
         playerBoat.GetComponent<ASL.ASLObject>().SendAndSetClaim(() =>
         {
-            // This could be moved to a delegate that is called when the player
-            // moves in order to save bandwidth
-            //Movement();
 
-            playerBoat.GetComponent<ASL.ASLObject>().SendAndSetWorldPosition(playerBoat.transform.position);
         });
     }
 
@@ -55,9 +49,13 @@ public class GameManagerASL : MonoBehaviour
     // types like movement and color
     private static void OnPlayerReceiveFloats(string _id, float[] _floats)
     {
-        //var dir = new Vector3(_floats[0], _floats[1], _floats[2]);
         ASL.ASLObject networkedPlayerBoat;
         ASL.ASLHelper.m_ASLObjects.TryGetValue(_id, out networkedPlayerBoat);
-        //networkedPlayerBoat.GetComponent<Rigidbody>().velocity = new Vector3(2, 0);
+
+        // Color
+        // Rotation
+        // Movement
+        var direction = new Vector3(_floats[0], _floats[1], _floats[2]);
+        networkedPlayerBoat.transform.GetChild(0).GetComponent<Rigidbody>().AddForce(direction);
     }
 }
