@@ -121,7 +121,7 @@ public class BoatMovement : MonoBehaviour
         // Get Input
         velocity = Mathf.Clamp(
             velocity + Input.GetAxis("Vertical") * accelRate * Time.deltaTime,
-            0.15f,
+            -0.15f,
             0.1f);
 
         // Calculate new movement
