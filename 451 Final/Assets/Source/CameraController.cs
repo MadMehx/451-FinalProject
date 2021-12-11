@@ -91,7 +91,6 @@ public class CameraController : MonoBehaviour
         r = invP.inverse * r * invP;
         Vector3 newCameraPos = r.MultiplyPoint(transform.localPosition);
 
-        var oldPos = transform.localPosition;
         var v = lookAtPosition.position;
         v.y = newCameraPos.y;
         if (Vector3.Angle(newCameraPos, v) >= 10)
