@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 2722367386331605294}
   - component: {fileID: 6938076037960704321}
   - component: {fileID: 3106592868179524958}
+  - component: {fileID: 6298396521797478221}
   m_Layer: 0
   m_Name: MiniCam
   m_TagString: Untagged
@@ -242,6 +243,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buoys: []
+--- !u!114 &6298396521797478221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256220051329959336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &4591050489424773388
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +412,7 @@ GameObject:
   - component: {fileID: 4591050490202172040}
   - component: {fileID: 4591050490202172043}
   - component: {fileID: 4591050490202172042}
+  - component: {fileID: 5817578646986393778}
   m_Layer: 0
   m_Name: PistonPivot
   m_TagString: Untagged
@@ -418,14 +453,14 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
@@ -478,6 +513,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
+--- !u!114 &5817578646986393778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591050490202172149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9c7cec609eb54a8ddbf37650a7f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4591050490342967366
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +636,7 @@ GameObject:
   - component: {fileID: 4591050490928519413}
   - component: {fileID: 4591050490928519412}
   - component: {fileID: 4591050490928519415}
+  - component: {fileID: 1905538419151653756}
   m_Layer: 0
   m_Name: PistonSheath
   m_TagString: Untagged
@@ -629,14 +677,14 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
@@ -689,6 +737,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
+--- !u!114 &1905538419151653756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591050490928519414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9c7cec609eb54a8ddbf37650a7f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4591050491377029927
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +898,7 @@ GameObject:
   - component: {fileID: 4591050491507592046}
   - component: {fileID: 4591050491507592041}
   - component: {fileID: 4591050491507592040}
+  - component: {fileID: 1364155782410579587}
   m_Layer: 0
   m_Name: Piston
   m_TagString: Untagged
@@ -878,14 +939,14 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
@@ -938,6 +999,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
+--- !u!114 &1364155782410579587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591050491507592043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9c7cec609eb54a8ddbf37650a7f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4591050491567473815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,6 +1112,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 88c88eadaedda024f8093dd4bd1990e5, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 88c88eadaedda024f8093dd4bd1990e5, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 88c88eadaedda024f8093dd4bd1990e5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -1067,6 +1148,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
+--- !u!114 &8620441331226929563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3708672277483826202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9c7cec609eb54a8ddbf37650a7f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4052124098106717856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88c88eadaedda024f8093dd4bd1990e5, type: 3}
@@ -1124,6 +1217,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c86e08e81ad13c14a8f9adf7264e8d8e, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c86e08e81ad13c14a8f9adf7264e8d8e, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c86e08e81ad13c14a8f9adf7264e8d8e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -1152,6 +1253,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
+--- !u!114 &993445910333505110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3708672277613052040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9c7cec609eb54a8ddbf37650a7f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4052124097977997874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c86e08e81ad13c14a8f9adf7264e8d8e, type: 3}
@@ -1209,6 +1322,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: f817d2be47cc28943b0a4088ec5842cd, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f817d2be47cc28943b0a4088ec5842cd, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f817d2be47cc28943b0a4088ec5842cd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -1237,6 +1358,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
+--- !u!114 &8048109330823674216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3708672276541024696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b9c7cec609eb54a8ddbf37650a7f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4052124096893383426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f817d2be47cc28943b0a4088ec5842cd, type: 3}

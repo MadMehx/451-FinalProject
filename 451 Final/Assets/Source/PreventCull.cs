@@ -6,7 +6,7 @@ public class PreventCull : MonoBehaviour
     void Start()
     {
         Mesh mesh = gameObject.GetComponent<MeshFilter>().mesh;
-        Bounds meshBounds = new Bounds(Vector3.zero, new Vector3(100f, 100f, 100f));
+        Bounds meshBounds = new Bounds(Vector3.zero, new Vector3(10000f, 10000f, 10000f));
         mesh.bounds = meshBounds;
     }
 }
