@@ -10,12 +10,6 @@ public class CameraManipulation : MonoBehaviour
     private const float kPixelToDegree = 0.1f;
     private const float kPixelToDistant = 0.05f;
 
-    // Use this for initialization
-    void Start()
-    {
-        Debug.Assert(LookAt != null);
-    }
-
     // Update is called once per frame
     void Update()
     {

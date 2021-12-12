@@ -866,7 +866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boat: {fileID: 4591050489424773388}
   turnRate: 0.1
-  accelRate: 2
+  accelRate: 1
   piston: {fileID: 4591050491377029927}
   rotor: {fileID: 4591050489662378380}
 --- !u!54 &2770243242768234566

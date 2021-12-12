@@ -6,7 +6,7 @@ public class BoatMovement : MonoBehaviour
 {
     public GameObject boat;
     public float turnRate = 0.1f;
-    public float accelRate = 2f;
+    public float accelRate;
 
     float turnAngle = 0;
     float velocity = 0;
