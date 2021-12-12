@@ -63,7 +63,15 @@ public class GameManagerASL : MonoBehaviour
         else
         {
             var direction = new Vector3(_floats[0], _floats[1], _floats[2]);
-            networkedPlayerBoat.transform.GetChild(0).GetComponent<Rigidbody>().AddForce(direction);
+
+            if (direction != Vector3.zero)
+            {
+                networkedPlayerBoat.transform.GetChild(0).GetComponent<Rigidbody>().AddForce(direction);
+            }
+            else
+            {
+                networkedPlayerBoat.transform.GetChild(0).GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
         }
     }
 }

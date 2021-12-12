@@ -6,7 +6,7 @@ public class BoatMovement : MonoBehaviour
 {
     public GameObject boat;
     public float turnRate = 0.1f;
-    public float accelRate = -0.1f;
+    public float accelRate = 2f;
 
     float turnAngle = 0;
     float velocity = 0;
@@ -23,7 +23,7 @@ public class BoatMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (boat == GameManagerASL.playerBoat)
         {

@@ -26,55 +26,56 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftAlt))
         {
-            //transform.up = Vector3.up;
-            //transform.forward = (lookAtPosition.transform.localPosition - transform.localPosition).normalized;
+            ////transform.up = Vector3.up;
+            ////transform.forward = (lookAtPosition.transform.localPosition - transform.localPosition).normalized;
 
-            // On first press
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-            {
-                // Get start pos
-                prevMouseX = Input.mousePosition.x;
-                prevMouseY = Input.mousePosition.y;
-            } 
-            // On holding
-            else if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-            {
-                // Get distance between current and start to calculate move
-                // distance
-                var distanceX = prevMouseX - Input.mousePosition.x;
-                var distanceY = prevMouseY - Input.mousePosition.y;
+            //// On first press
+            //if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            //{
+            //    // Get start pos
+            //    prevMouseX = Input.mousePosition.x;
+            //    prevMouseY = Input.mousePosition.y;
+            //} 
+            //// On holding
+            //else if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
+            //{
+            //    // Get distance between current and start to calculate move
+            //    // distance
+            //    var distanceX = prevMouseX - Input.mousePosition.x;
+            //    var distanceY = prevMouseY - Input.mousePosition.y;
 
-                if (Input.GetMouseButton(0)) // Tumble
-                {
-                    // Shrink distance so camera doesn't go flying
-                    distanceX *= 0.1f;
-                    distanceY *= 0.1f;
+            //    if (Input.GetMouseButton(0)) // Tumble
+            //    {
+            //        // Shrink distance so camera doesn't go flying
+            //        distanceX *= 0.1f;
+            //        distanceY *= 0.1f;
 
-                    Quaternion sideways = Quaternion.AngleAxis(-distanceX, transform.up);
-                    ComputeOrbit(sideways);
+            //        Quaternion sideways = Quaternion.AngleAxis(-distanceX, transform.up);
+            //        ComputeOrbit(sideways);
 
-                    Quaternion upDown = Quaternion.AngleAxis(distanceY, transform.right);
-                    ComputeOrbit(upDown);
-                }
+            //        Quaternion upDown = Quaternion.AngleAxis(distanceY, transform.right);
+            //        ComputeOrbit(upDown);
+            //    }
 
-                // Get new start pos
-                prevMouseX = Input.mousePosition.x;
-                prevMouseY = Input.mousePosition.y;
-            }
+            //    // Get new start pos
+            //    prevMouseX = Input.mousePosition.x;
+            //    prevMouseY = Input.mousePosition.y;
+            //}
 
-            // Dolly
-            var scroll = -Input.GetAxis("Mouse ScrollWheel");
-            Vector3 dir = transform.localPosition - lookAtPosition.localPosition;
-            transform.localPosition += scroll * dir;
+            //// Dolly
+            //var scroll = -Input.GetAxis("Mouse ScrollWheel");
+            //Vector3 dir = transform.localPosition - lookAtPosition.localPosition;
+            //transform.localPosition += scroll * dir;
         } 
         else
         {
-            var newPos = Vector3.Lerp(transform.position, player.transform.position - (-player.transform.forward) * 10f, Time.deltaTime);
+            var newPos = player.transform.position - (-player.transform.forward) * 10f;
+            //var newPos = Vector3.Lerp(transform.position, player.transform.position - (-player.transform.forward) * 10f, Time.deltaTime);
             //newPos.y += 0.1f;
             transform.position = newPos;
             transform.LookAt(player.transform.position);
             transform.position = new Vector3(transform.position.x,
-                                             transform.position.y + 0.1f,
+                                             transform.position.y + 3f,
                                              transform.position.z);
         }
     }
