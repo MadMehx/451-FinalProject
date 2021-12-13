@@ -57,7 +57,10 @@ public class GameManagerASL : MonoBehaviour
         if (_floats[3] >= 10f)
         {
             var rotation = Quaternion.Euler(_floats[0], _floats[1], _floats[2]);
-            networkedPlayerBoat.transform.GetChild(0).transform.rotation = rotation;
+            //networkedPlayerBoat.transform.GetChild(0).transform.eulerAngles = rotation.eulerAngles;
+            networkedPlayerBoat.transform.GetChild(0).transform.rotation =
+                Quaternion.Lerp(networkedPlayerBoat.transform.GetChild(0).transform.rotation,
+                rotation, Time.deltaTime * 100);
         }
         // Movement
         else

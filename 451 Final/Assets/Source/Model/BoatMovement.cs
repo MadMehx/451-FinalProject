@@ -91,8 +91,8 @@ public class BoatMovement : MonoBehaviour
         // Get input
         turnAngle = Mathf.Clamp(
             turnAngle + Input.GetAxis("Horizontal") * turnRate,
-            -20,
-            20);
+            -25,
+            25);
 
         // Calculate new rotation
         var currRot = transform.eulerAngles;
@@ -121,8 +121,8 @@ public class BoatMovement : MonoBehaviour
         // Get Input
         velocity = Mathf.Clamp(
             velocity + Input.GetAxis("Vertical") * accelRate * Time.deltaTime,
-            -0.15f,
-            0.2f);
+            -0.2f,
+            0.4f);
 
         // Calculate new movement
         var moveAmount = -transform.forward * velocity;
