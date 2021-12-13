@@ -8,8 +8,6 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private Transform lookAtPosition;
-    [SerializeField]
-    private Vector3 offset;
 
     private float prevMouseX = 0f;
     private float prevMouseY = 0f;
@@ -69,14 +67,11 @@ public class CameraController : MonoBehaviour
         } 
         else
         {
-            var newPos = player.transform.position - (-player.transform.forward) * 10f;
+            //var newPos = player.transform.position - (-player.transform.forward) * 10f;
             //var newPos = Vector3.Lerp(transform.position, player.transform.position - (-player.transform.forward) * 10f, Time.deltaTime);
             //newPos.y += 0.1f;
-            transform.position = newPos;
+            transform.position = player.transform.position - (-player.transform.forward) * 10f;
             transform.LookAt(player.transform.position);
-            transform.position = new Vector3(transform.position.x,
-                                             transform.position.y + 3f,
-                                             transform.position.z);
         }
     }
 

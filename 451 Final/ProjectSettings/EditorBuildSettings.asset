@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ASL/ASL_Scenes/ASL_SceneLoader.unity
     guid: 6026d53651e499849a1420efc6833ec7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ASLSetupTest.unity
     guid: c54de8ff52bc776408f23ce32fb0fc64
   m_configObjects: {}
