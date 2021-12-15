@@ -97,7 +97,7 @@ public class BoatMovement : MonoBehaviour
         // Calculate new rotation
         var currRot = transform.eulerAngles;
         var newRot = Quaternion.Euler(currRot.x,
-                                      currRot.y + turnAngle * Time.deltaTime,
+                                      currRot.y + turnAngle * Time.deltaTime * 6, //turning way too slowly
                                       currRot.z);
         // Send new rotation
         float[] direction = new float[]
