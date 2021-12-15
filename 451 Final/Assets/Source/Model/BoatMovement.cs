@@ -11,6 +11,7 @@ public class BoatMovement : MonoBehaviour
     float turnAngle = 0;
     float velocity = 0;
     public GameObject piston;
+    public GameObject motor;
     public GameObject rotor;
     float force = 0;
     bool reloaded = true;
@@ -67,7 +68,7 @@ public class BoatMovement : MonoBehaviour
                 reloaded = false;
             }
         }
-        if (firing && force < 1)
+        if (firing && force < 4)
         {
             force += 10 * Time.deltaTime;
         }
@@ -89,15 +90,18 @@ public class BoatMovement : MonoBehaviour
     private void RotationNetworked()
     {
         // Get input
-        turnAngle = Mathf.Clamp(
-            turnAngle + Input.GetAxis("Horizontal") * turnRate,
-            -25,
-            25);
+        // turnAngle = Mathf.Clamp(
+        //     turnAngle + Input.GetAxis("Horizontal") * turnRate,
+        //     -30,
+        //     30);
+        turnAngle = -motor.transform.localEulerAngles.y;
+        if (turnAngle < -90)
+            turnAngle+=360;
 
         // Calculate new rotation
         var currRot = transform.eulerAngles;
         var newRot = Quaternion.Euler(currRot.x,
-                                      currRot.y + turnAngle * Time.deltaTime * 6, //turning way too slowly
+                                      currRot.y + turnAngle * Time.deltaTime * 10, //turning way too slowly
                                       currRot.z);
         // Send new rotation
         float[] direction = new float[]
@@ -110,19 +114,20 @@ public class BoatMovement : MonoBehaviour
         GameManagerASL.playerBoat.GetComponent<ASL.ASLObject>().SendFloatArray(direction);
 
         // Locally rotate engine, piston, and rotor
-        transform.GetChild(0).localRotation = Quaternion.Euler(0, -turnAngle, 0);
+        //transform.GetChild(0).localRotation = Quaternion.Euler(0, -turnAngle, 0);
         transform.GetChild(1).localRotation = Quaternion.Euler(0, turnAngle, 0);
         var rotorRot = rotor.transform.eulerAngles;
-        rotor.transform.localRotation = Quaternion.Euler(0, 0, rotorRot.z + velocity * 10);
+        rotor.transform.localRotation = Quaternion.Euler(0, 0, rotorRot.z + velocity);
     }
 
     private void MovementNetworked()
     {
         // Get Input
-        velocity = Mathf.Clamp(
-            velocity + Input.GetAxis("Vertical") * accelRate * Time.deltaTime,
-            -0.2f,
-            0.4f);
+        // velocity = Mathf.Clamp(
+        //     velocity + Input.GetAxis("Vertical") * accelRate * Time.deltaTime,
+        //     0,
+        //     0.4f);
+        velocity = (motor.transform.eulerAngles.x -320) * .1f;
 
         // Calculate new movement
         var moveAmount = -transform.forward * velocity;
@@ -148,7 +153,7 @@ public class BoatMovement : MonoBehaviour
             }
         }
 
-        if (firing && force < 1)
+        if (firing && force < 5)
         {
             force += 10 * Time.deltaTime;
         }
