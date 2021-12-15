@@ -166,4 +166,7 @@ public class BoatMovement : MonoBehaviour
         }
         piston.transform.localPosition = new Vector3(0, -force, 0);
     }
+    public bool IsFiring(){
+        return firing;
+    }
 }
