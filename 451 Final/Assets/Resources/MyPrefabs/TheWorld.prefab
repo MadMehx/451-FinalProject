@@ -1498,6 +1498,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4166945382221268737, guid: 6841196a30ae0df4aa25e4dd63592478, type: 3}
   m_PrefabInstance: {fileID: 4496308742601693767}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &866013358813306139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3630651669732034396, guid: 6841196a30ae0df4aa25e4dd63592478, type: 3}
+  m_PrefabInstance: {fileID: 4496308742601693767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2132256714794987596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2589944537942731275, guid: 6841196a30ae0df4aa25e4dd63592478, type: 3}
@@ -1520,6 +1525,7 @@ MonoBehaviour:
   sphere20: {fileID: 555612113238826310}
   sphere30: {fileID: 4874732232862190382}
   sphere40: {fileID: 5125529034845454735}
+  guide: {fileID: 866013358813306139}
 --- !u!1 &4874732232862190382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9061418208680218985, guid: 6841196a30ae0df4aa25e4dd63592478, type: 3}
