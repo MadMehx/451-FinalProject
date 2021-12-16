@@ -40,6 +40,7 @@
             float4x4 MyXformMat;
 
             float4 LightPosition;
+			float4 LightPosition1;
 			
 			v2f vert (appdata v)
 			{
@@ -58,7 +59,7 @@
             // our own function
             fixed4 ComputeDiffuse(v2f i) {
                 float3 l = normalize(LightPosition - i.vertexWC);
-                return clamp(dot(i.normal, l), 0, 1);
+                return clamp(dot(i.normal, l)*30, 0, 1);
             }
 
 			fixed4 frag (v2f i) : SV_Target
